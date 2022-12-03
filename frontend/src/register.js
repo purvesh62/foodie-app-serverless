@@ -4,6 +4,7 @@ import './App.css';
 import UserPool from "./UserPool";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
+import { Hidden } from "@mui/material";
   
 
 function FirstFactor() {
@@ -71,6 +72,7 @@ function FirstFactor() {
     UserPool.signUp(email, password, [], null, (err,data)=>{
       if (err){
         console.error(err);
+        alert("Something went wromg, please try again")
       }
       navigate('/qa-signup',{ state : {
         email: email}});
@@ -85,7 +87,7 @@ function FirstFactor() {
   };
 
   return (
-    <>
+    <div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
     <h1>Welcome to HalifaxFoodie!!</h1>
     <p>Already a user? Click here to <a href="/login">Login</a></p>
       <form onSubmit={handleSubmit(onSubmit)} sx={{ display: 'flex', gap: 2 }}>
@@ -158,7 +160,7 @@ function FirstFactor() {
           
       </form>
       <p>Step 1 of 3</p>
-    </>
+    </div>
   );
 }
 

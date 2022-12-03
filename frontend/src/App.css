@@ -57,7 +57,7 @@
 p{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 /* input {
@@ -86,13 +86,13 @@ input {
 color: #b8b8b8;
 }
 input:focus::placeholder{
-  color: #0069d9;
+  color: #ED595C;
   }
 input:focus {
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 3px solid #0069d9;
+  border-bottom: 3px solid #ED595C;
   outline: 0;
   font-size: 1.1rem;
   color: black;
@@ -138,12 +138,11 @@ form{
 html,body{
   height: 100%;
   place-items: center;
-  background-image: linear-gradient(to right, #6cb3ff , #0069d9);
   font-family: 'Lato', sans-serif;
 }
 button{
   font-size: 18px;
-  background-color: #0069d9;
+  background-color: #ED595C;
   color: white;
   border-radius: 10px;
   border: none;
@@ -154,7 +153,7 @@ button{
 }
 
 button:hover{
-  background-color: #004ba1;
+  background-color: #913839;
 }
 
 a:link{
@@ -188,16 +187,16 @@ a:active {
   color: red;
 }
 .cipher{
-  color:#0069d9;
-  border: 2px solid #0069d9;
+  color:#ED595C;
+  border: 2px solid #ED595C;
   padding: 0;
   background-color: white;
   width: 30%;
 }
 .cipher:hover{
-  border: 2px solid #004ba1;
+  border: 2px solid #913839;
   background-color: rgb(214, 214, 214);
-  color: #004ba1;
+  color: #913839;
 }
 /* *{
   margin: 0;
@@ -250,7 +249,7 @@ a:active {
   left: 4px;
   width: 12px;
   height: 12px;
-  background: #0069d9;
+  background: #ED595C;
   border-radius: 50%;
   opacity: 0;
   transform: scale(1.5);
@@ -261,8 +260,8 @@ input[type="radio"]{
 }
 #option-1:checked:checked ~ .option-1,
 #option-2:checked:checked ~ .option-2{
-  border-color: #0069d9;
-  background: #0069d9;
+  border-color: #ED595C;
+  background: #ED595C;
 }
 #option-1:checked:checked ~ .option-1 .dot,
 #option-2:checked:checked ~ .option-2 .dot{

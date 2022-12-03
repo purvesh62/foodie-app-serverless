@@ -41,7 +41,7 @@ function LoginThird() {
                     // alert("successful")
                 }
                 else {
-                    alert("failure")
+                    alert("Incorrect cipher text, please try again");
                 }
             })
             .catch((error) => {
@@ -84,7 +84,7 @@ function LoginThird() {
     //     }
     }
     return (
-        <div>
+        <div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
             <h1>Welcome to HalifaxFoodie!!</h1>
             <br></br>
             <form onSubmit={loginHandle}>
