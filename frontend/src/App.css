@@ -136,7 +136,6 @@ form{
   width: 50%;
 }
 html,body{
-  overflow: hidden;
   height: 100%;
   place-items: center;
   background-image: linear-gradient(to right, #6cb3ff , #0069d9);
