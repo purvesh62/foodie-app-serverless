@@ -26,36 +26,15 @@ function App() {
         <Route path='/qa-login' element={<LoginSecond />}/>
         <Route path='/signup-cipher' element={<ThirdFactor />}/>
         <Route path='/login-cipher' element={<LoginThird />}/>
-        <Route
-          path="/visual"
-          element={
-            <ProtectedRoute>
-              <Visualize />
-            </ProtectedRoute>
-          }
-        />    
-        <Route
-          path="/similar-recipes"
-          element={
-            <ProtectedRoute>
-              <SimilarRecipes />
-            </ProtectedRoute>
-          }
-        />    
-        <Route
-          path="/polarity"
-          element={
-            <ProtectedRoute>
-              <Polarity />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/visual" element={ <ProtectedRoute> <Visualize /> </ProtectedRoute> }/>    
+        <Route path="/similar-recipes" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    
+        <Route path="/polarity" element={ <ProtectedRoute> <Polarity /> </ProtectedRoute> } />
+
+        <Route path="/profile" element={<ProtectedRoute> <ProfilePage /> </ProtectedRoute> } />
+
+        <Route path="/oldChat" element={ <ProtectedRoute> <OldChat /> </ProtectedRoute> } />
         
-        <Route path="/profile" element={<ProfilePage/>}></Route>
-        <Route path="/oldChat" element={<OldChat/>}></Route>
-        {
-          localStorage.getItem("type") === "user" ? <Route path='/chat' element={<Chat />}/> : <Route path='/chat' element={<AgentChat />}/>
-        }
+        { localStorage.getItem("type") === "user" ? <Route path="/chat" element={ <ProtectedRoute> <Chat /> </ProtectedRoute> } /> : <Route path="/chat" element={ <ProtectedRoute> <AgentChat /> </ProtectedRoute> } />}
     </Routes>
   );
 }
