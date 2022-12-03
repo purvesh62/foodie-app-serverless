@@ -14,6 +14,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
+import NavigationBar from "./Navbar";
 
 function DataProcessing() {
   const toast = useToast();
@@ -93,54 +94,57 @@ function DataProcessing() {
   };
 
   return (
-    <ChakraProvider theme={theme}>
-      <Center>
-        <Box w={750} p={10}>
-          <Heading as="h2" size="xl" noOfLines={1} mb={5}>
-            Recepie
-          </Heading>
-          <Select
-            variant="filled"
-            placeholder="Select Resturant"
-            mb={5}
-            onChange={(event) => setResturantId(event.target.value)}
-          >
-            <option value="Resturant1">Resturant1</option>
-            <option value="Resturant2">Resturant2</option>
-            <option value="Resturant3">Resturant3</option>
-          </Select>
-          <Textarea
-            placeholder="Here is a sample placeholder"
-            h={200}
-            mb={5}
-            onChange={(e) => setRecipe(e.target.value)}
-          />
-          <HStack spacing="10px" mb={10}>
-            <Button colorScheme="purple" size="md" onClick={handleFileUpload}>
-              Upload
-            </Button>
-            <Button colorScheme="green" size="md" onClick={handleExtraction}>
-              Extract
-            </Button>
-          </HStack>
-          <VStack>
-            <Box>
-              {extractedData["data"].map((tag, i) => (
-                <Badge colorScheme="green" mr={2} p={1} pl={3} pr={3} mb={2}>
-                  {tag}
-                </Badge>
-              ))}
-            </Box>
-
-            {extractionFlag && (
-              <Button colorScheme="green" size="md" onClick={handleTagUpload}>
-                Upload Tags
+    <>
+      <NavigationBar />
+      <ChakraProvider theme={theme}>
+        <Center>
+          <Box w={750} p={10}>
+            <Heading as="h2" size="xl" noOfLines={1} mb={5}>
+              Recepie
+            </Heading>
+            <Select
+              variant="filled"
+              placeholder="Select Resturant"
+              mb={5}
+              onChange={(event) => setResturantId(event.target.value)}
+            >
+              <option value="Resturant1">Resturant1</option>
+              <option value="Resturant2">Resturant2</option>
+              <option value="Resturant3">Resturant3</option>
+            </Select>
+            <Textarea
+              placeholder="Here is a sample placeholder"
+              h={200}
+              mb={5}
+              onChange={(e) => setRecipe(e.target.value)}
+            />
+            <HStack spacing="10px" mb={10}>
+              <Button colorScheme="purple" size="md" onClick={handleFileUpload}>
+                Upload
               </Button>
-            )}
-          </VStack>
-        </Box>
-      </Center>
-    </ChakraProvider>
+              <Button colorScheme="green" size="md" onClick={handleExtraction}>
+                Extract
+              </Button>
+            </HStack>
+            <VStack>
+              <Box>
+                {extractedData["data"].map((tag, i) => (
+                  <Badge colorScheme="green" mr={2} p={1} pl={3} pr={3} mb={2}>
+                    {tag}
+                  </Badge>
+                ))}
+              </Box>
+
+              {extractionFlag && (
+                <Button colorScheme="green" size="md" onClick={handleTagUpload}>
+                  Upload Tags
+                </Button>
+              )}
+            </VStack>
+          </Box>
+        </Center>
+      </ChakraProvider>
+    </>
   );
 }
 

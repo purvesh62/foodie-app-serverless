@@ -20,6 +20,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import "./App.css";
+import NavigationBar from "./Navbar";
 
 function SimilarRecipes() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -58,95 +59,98 @@ function SimilarRecipes() {
   };
 
   return (
-    <ChakraProvider>
-      <Box>
-        {isLoading && (
-          <Center width="100%" height="100vh">
-            <Spinner
-              verticalAlign=""
-              thickness="4px"
-              speed="0.8s"
-              emptyColor="gray.200"
-              color="green.500"
-              size="xl"
-              disabled={true}
-            />
-          </Center>
-        )}
-      </Box>
-      <Box m={10}>
-        {Object.entries(recipes).map(([key, value]) => (
-          <Box
-            p={10}
-            border="1px"
-            borderColor="gray.200"
-            mb={5}
-            borderRadius="10px"
-          >
-            <Badge size="md" colorScheme="green" p={2} pl={5} pr={5}>
-              {value.name}
-            </Badge>
-            <Text mt={5} noOfLines={5} className="text-black">
-              {value.recipe}
-            </Text>
-            <Button
-              colorScheme="blue"
-              mt={10}
-              onClick={() => handleSimilarityCheck(value.id)}
+    <>
+      <NavigationBar />
+      <ChakraProvider>
+        <Box>
+          {isLoading && (
+            <Center width="100%" height="100vh">
+              <Spinner
+                verticalAlign=""
+                thickness="4px"
+                speed="0.8s"
+                emptyColor="gray.200"
+                color="green.500"
+                size="xl"
+                disabled={true}
+              />
+            </Center>
+          )}
+        </Box>
+        <Box m={10}>
+          {Object.entries(recipes).map(([key, value]) => (
+            <Box
+              p={10}
+              border="1px"
+              borderColor="gray.200"
+              mb={5}
+              borderRadius="10px"
             >
-              Check Similar Recipes
-            </Button>
-          </Box>
-        ))}
-      </Box>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {isLoading && (
-              <Center width="100%" height="100vh">
-                <Spinner
-                  verticalAlign=""
-                  thickness="4px"
-                  speed="0.8s"
-                  emptyColor="gray.200"
-                  color="green.500"
-                  size="xl"
-                  disabled={true}
-                />
-              </Center>
-            )}
-            {Object.entries(similarRecipe).map(([key, value]) => (
-              <Box
-                p={10}
-                border="1px"
-                borderColor="gray.200"
-                mb={5}
-                borderRadius="10px"
+              <Badge size="md" colorScheme="green" p={2} pl={5} pr={5}>
+                {value.name}
+              </Badge>
+              <Text mt={5} noOfLines={5} className="text-black">
+                {value.recipe}
+              </Text>
+              <Button
+                colorScheme="blue"
+                mt={10}
+                onClick={() => handleSimilarityCheck(value.id)}
               >
-                <Badge size="md" colorScheme="green" p={2} pl={5} pr={5}>
-                  {value.name}
-                </Badge>
-                <Text mt={5} noOfLines={2} className="text-black">
-                  {value.recipe}
-                </Text>
-                <Badge mt={3} p={3} colorScheme="blue">
-                  Similarity Score : + {value.similarity.substring(0, 7)}
-                </Badge>
-              </Box>
-            ))}
-          </ModalBody>
+                Check Similar Recipes
+              </Button>
+            </Box>
+          ))}
+        </Box>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              {isLoading && (
+                <Center width="100%" height="100vh">
+                  <Spinner
+                    verticalAlign=""
+                    thickness="4px"
+                    speed="0.8s"
+                    emptyColor="gray.200"
+                    color="green.500"
+                    size="xl"
+                    disabled={true}
+                  />
+                </Center>
+              )}
+              {Object.entries(similarRecipe).map(([key, value]) => (
+                <Box
+                  p={10}
+                  border="1px"
+                  borderColor="gray.200"
+                  mb={5}
+                  borderRadius="10px"
+                >
+                  <Badge size="md" colorScheme="green" p={2} pl={5} pr={5}>
+                    {value.name}
+                  </Badge>
+                  <Text mt={5} noOfLines={2} className="text-black">
+                    {value.recipe}
+                  </Text>
+                  <Badge mt={3} p={3} colorScheme="blue">
+                    Similarity Score : + {value.similarity.substring(0, 7)}
+                  </Badge>
+                </Box>
+              ))}
+            </ModalBody>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </ChakraProvider>
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Close
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </ChakraProvider>
+    </>
   );
 }
 
