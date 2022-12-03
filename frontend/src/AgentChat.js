@@ -13,9 +13,9 @@ import {
   where,
   deleteDoc,
 } from "firebase/firestore";
-import db from "../firebaseDB";
-import UserChatBubble from "../UserChatBubble";
-import AgentChatBubble from "../AgentChatBubble";
+import db from "./firebaseDB";
+import UserChatBubble from "./UserChatBubble";
+import AgentChatBubble from "./AgentChatBubble";
 
 function AgentChat() {
   const userEmail = localStorage.getItem("email");
@@ -59,8 +59,8 @@ function AgentChat() {
       }}
     );
     console.log(res);
-    const deleteRes = await deleteDoc(doc(db, "ChatModule", documentID));
-    console.log(deleteRes);
+    // const deleteRes = await deleteDoc(doc(db, "ChatModule", documentID));
+    // console.log(deleteRes);
   }
 
   async function getChatSession() {

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-import UserChatBubble from '../ChatModule/ChatBubble/UserChatBubble';
-import AgentChatBubble from '../ChatModule/ChatBubble/AgentChatBubble';
+import UserChatBubble from './UserChatBubble';
+import AgentChatBubble from './AgentChatBubble';
 function OldChat() {
     const location = useLocation()
     const chatHistory = location.state.chatHistory

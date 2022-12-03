@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { collection, getDocs, doc, getDoc, setDoc, query, onSnapshot} from "firebase/firestore";
-import db from "./../firebaseDB";
+import db from "./firebaseDB";
 import { Card, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,8 +25,8 @@ function ProfilePage() {
                 console.log(chat.data())
                 return(
                     <Grid item xs={12}>
-                        <Card sx={{m:2}} onClick={() => {navigate("/oldChat",{state:{chatHistory:chat.data().chatHistory,query: chat.data().query}})}}>
-                            <Typography variant="h4" sx={{m:2}}>{chat.data().query}</Typography>
+                        <Card sx={{m:2}} onClick={() => {navigate("/oldChat",{state:{chatHistory:chat.data().chat, query: chat.data().chat[0].message}})}}>
+                            <Typography variant="h5" sx={{m:2}}>{chat.data().chat[0].message}</Typography>
                         </Card>
                     </Grid>
                     

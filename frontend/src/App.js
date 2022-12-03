@@ -10,11 +10,12 @@ import Visualize from './visualize';
 import SimilarRecipes from "./SimilarRecipes";
 import DataProcessing from "./DataProcessing";
 import Polarity from "./Polarity";
-import AgentChat from "./AgentPortal/AgentChat";
+import AgentChat from "./AgentChat";
 import Chat from "./Chat";
 import ProtectedRoute from "./Protected";
 // import LexBot from "./lex-bot";
-import ProfilePage from "./Profile.js/ProfilePage"
+import ProfilePage from "./ProfilePage"
+import OldChat from "./OldChatPage"
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
         />
         
         <Route path="/profile" element={<ProfilePage/>}></Route>
+        <Route path="/oldChat" element={<OldChat/>}></Route>
         {
           localStorage.getItem("type") === "user" ? <Route path='/chat' element={<Chat />}/> : <Route path='/chat' element={<AgentChat />}/>
         }
