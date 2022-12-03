@@ -24,7 +24,7 @@ function LoginSecond(){
     }
     else{
     console.log('No Users Found');
-    alert("Incorrect details provided, Try again!");
+    alert("Incorrect details provided, please try again!");
     }
   }
 //     const firestore =async(event)=>{
@@ -35,7 +35,7 @@ function LoginSecond(){
 //     })
 //   }
     return (
-<div>
+<div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
 <h1>Welcome to HalifaxFoodie!!</h1>
 <br></br>
 <form onSubmit={verify}>

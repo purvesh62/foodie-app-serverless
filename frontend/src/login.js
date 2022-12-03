@@ -69,7 +69,7 @@ function LoginFirst() {
                 console.log("onSuccess: ",data);
             },
             onFailure:(err)=>{
-                alert("Incorrect Username or password, please check and try again.")
+                alert("Incorrect Username or password, please check and try again. or please check if you have verified your mail")
                 console.error("onFailure: ", err);
             }
             // newPasswordRequired: (data)=>{
@@ -79,7 +79,7 @@ function LoginFirst() {
       };
 
       return (
-        <div> 
+        <div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
             <h1>Welcome to HalifaxFoodie!!</h1>
             <p>New to the application? <a href="/">Register here</a></p>
         <form onSubmit={onSubmit} className="formLogin">

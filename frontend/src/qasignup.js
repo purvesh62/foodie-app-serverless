@@ -33,6 +33,7 @@ function SecondFactor(){
               email: email}});
 
         }).catch((error)=>{
+          alert("Something went wrong, please try again");
           console.log(error);
         })
       } 
@@ -62,7 +63,7 @@ function SecondFactor(){
 
     return (
       
-<div>
+<div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
   
 <h1>Welcome to HalifaxFoodie!!</h1>
 <br></br>
