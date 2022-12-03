@@ -20,17 +20,13 @@ function App() {
   return (
     <Routes>
         <Route path="/" element={<FirstFactor />}/>
-        
         <Route path="/qa-signup" element={<SecondFactor />}/>
+        <Route path='/signup-cipher' element={<ThirdFactor />}/>
 
         <Route path='/login' element={<LoginFirst />}/>
+        <Route path="/qa-login" element={ <ProtectedRoute> <LoginSecond /> </ProtectedRoute> }/>    
+        <Route path="/login-cipher" element={ <ProtectedRoute> <LoginThird /> </ProtectedRoute> }/>    
 
-        <Route path='/qa-login' element={<LoginSecond />}/>
-
-        <Route path='/signup-cipher' element={<ThirdFactor />}/>
-        
-        <Route path='/login-cipher' element={<LoginThird />}/>
-        
         <Route path="/visual" element={ <ProtectedRoute> <Visualize /> </ProtectedRoute> }/>    
         
         <Route path="/similar-recipes" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    

@@ -37,7 +37,8 @@ function LoginThird() {
                 console.log(response.data.body)
                 console.log(typeof response.data)
                 if (response.data.body === 1) {
-                    alert("successful")
+                    navigate ('/similar-recipes')
+                    // alert("successful")
                 }
                 else {
                     alert("failure")

@@ -2,9 +2,12 @@ import React, {useState} from "react";
 import './App.css';
 import axios from "axios";
 import { useLocation} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function ThirdFactor(){
   let incomingData = useLocation();
+  let navigate = useNavigate();
+
     const [text,SetText]=useState("");
     const [key,SetKey]=useState("");
     const [cipher, setCipher] = useState("");
@@ -55,7 +58,7 @@ onChange={(event)=> SetKey(event.target.value)} maxLength={4} required></input><
 <br></br>
 <p className="error">Note!! Please note down your cipher text as it will be required during login</p>
 <br></br>
-<button type="submit">Register</button>
+<button type="submit" onClick={() => {navigate("/login")}}>Register</button>
 </div>
 
 </form>
