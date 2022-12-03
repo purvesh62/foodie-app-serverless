@@ -13,7 +13,6 @@ import Polarity from "./Polarity";
 import AgentChat from "./AgentChat";
 import Chat from "./Chat";
 import ProtectedRoute from "./Protected";
-// import LexBot from "./lex-bot";
 import ProfilePage from "./ProfilePage"
 import OldChat from "./OldChatPage"
 
@@ -21,19 +20,27 @@ function App() {
   return (
     <Routes>
         <Route path="/" element={<FirstFactor />}/>
+        
         <Route path="/qa-signup" element={<SecondFactor />}/>
+
         <Route path='/login' element={<LoginFirst />}/>
+
         <Route path='/qa-login' element={<LoginSecond />}/>
+
         <Route path='/signup-cipher' element={<ThirdFactor />}/>
+        
         <Route path='/login-cipher' element={<LoginThird />}/>
+        
         <Route path="/visual" element={ <ProtectedRoute> <Visualize /> </ProtectedRoute> }/>    
+        
         <Route path="/similar-recipes" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    
+        
         <Route path="/polarity" element={ <ProtectedRoute> <Polarity /> </ProtectedRoute> } />
 
         <Route path="/profile" element={<ProtectedRoute> <ProfilePage /> </ProtectedRoute> } />
 
         <Route path="/oldChat" element={ <ProtectedRoute> <OldChat /> </ProtectedRoute> } />
-        
+
         { localStorage.getItem("type") === "user" ? <Route path="/chat" element={ <ProtectedRoute> <Chat /> </ProtectedRoute> } /> : <Route path="/chat" element={ <ProtectedRoute> <AgentChat /> </ProtectedRoute> } />}
     </Routes>
   );

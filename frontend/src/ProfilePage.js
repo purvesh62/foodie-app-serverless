@@ -20,6 +20,7 @@ function ProfilePage() {
     return (
         <>
         <Grid container direction="row" justifyContent ="center" >
+            <Grid container direction="row" justifyContent ="center" ><Typography variant="h3" sx={{m:2}}>User Profile </Typography></Grid>
             <Grid item xs={12}><Typography variant="h3" sx={{m:2}}>Previous Chats</Typography></Grid>
             {previousChat.map(chat => {
                 console.log(chat.data())
