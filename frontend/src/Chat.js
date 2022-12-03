@@ -4,6 +4,8 @@ import Typography from "@mui/material/Typography";
 import { Grid, TextField } from "@mui/material";
 import UserChatBubble from "./UserChatBubble";
 import AgentChatBubble from "./AgentChatBubble";
+import NavigationBar from "./Navbar";
+
 import {
   collection,
   getDocs,
@@ -61,6 +63,8 @@ function Chat() {
   }, []);
 
   return (
+    <div>
+    <NavigationBar />
     <Grid
       container
       justifyContent="center"
@@ -154,7 +158,7 @@ function Chat() {
         justifyContent="center"
         spacing={2}
       ></Grid>
-    </Grid>
+    </Grid></div>
   );
 }
 

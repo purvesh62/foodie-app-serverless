@@ -3,6 +3,8 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid, TextField } from "@mui/material";
 import axios from "axios";
+import NavigationBar from "./Navbar";
+
 import {
   collection,
   getDocs,
@@ -18,6 +20,14 @@ import UserChatBubble from "./UserChatBubble";
 import AgentChatBubble from "./AgentChatBubble";
 
 function AgentChat() {
+  const kommuniccate = ((d, m) => {
+    var kommunicateSettings =
+      { "appId": "365423f5538062fede68e6d8d5cd92f1f", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+    var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+    s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+    var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+    window.kommunicate = m; m._globals = kommunicateSettings;
+  })(document, window.kommunicate || {});
   const userEmail = localStorage.getItem("email");
 
   const [chatData, setChatHistory] = useState([]);
@@ -87,6 +97,8 @@ function AgentChat() {
   }, []);
 
   return (
+    <div>
+    <NavigationBar />
     <Grid
       container
       justifyContent="center"
@@ -189,6 +201,7 @@ function AgentChat() {
         spacing={2}
       ></Grid>
     </Grid>
+    </div>
   );
 }
 

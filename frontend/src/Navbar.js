@@ -1,9 +1,25 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import axios from "axios";
 
 function NavigationBar() {
   const handleLogout = () => {
+    axios.post("https://ak2nvhm6hpyyzkj3dcdxd6hgxa0hztxc.lambda-url.us-east-1.on.aws",
+                {
+                    "table_name": "users",
+                    "type": "update",
+                    "data": {
+                      "primary_key": "email",
+                      "primary_key_value": localStorage.get("email"),
+                      "update_key": "is_active",
+                      "update_key_value": false
+                    }
+                  }).then((res)=>{
+                    console.log("User logged out", res);
+                  }).catch(function (error) {
+                    console.log("Error in logging out", error);
+                  });
     localStorage.clear();
   };
 
