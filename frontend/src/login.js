@@ -4,6 +4,7 @@ import './App.css';
 import UserPool from "./UserPool";
 import {useNavigate} from "react-router-dom"
 import axios from "axios";
+import NavigationBar from "./Navbar";
 
 function LoginFirst() {
     const[email, setEmail]=useState("");
