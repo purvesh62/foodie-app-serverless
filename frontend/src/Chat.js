@@ -15,6 +15,8 @@ import {
 } from "firebase/firestore";
 import db from "./firebaseDB";
 function Chat() {
+  const userEmail = localStorage.getItem("email");
+
   const [chatDocument, setChatHistory] = useState([]);
   const [chatDataDocument, setChatModuleDoc] = useState({ query: "" });
   const [message, setMessage] = useState("");
@@ -29,7 +31,7 @@ function Chat() {
     };
 
     console.log(updatedChatDocument);
-    setDoc(doc(db, "ChatModule", "user@dal.ca"), {
+    setDoc(doc(db, "ChatModule", userEmail), {
       ...updatedChatDocument,
     })
       .then((data) => {
@@ -42,7 +44,7 @@ function Chat() {
   }
 
   function getChatSession() {
-    const docRef = doc(db, "ChatModule", "user@dal.ca");
+    const docRef = doc(db, "ChatModule", userEmail);
     getDoc(docRef).then((data) => {
       console.log(data.data());
       setChatModuleDoc(data.data());
@@ -69,7 +71,7 @@ function Chat() {
         minHeight: "100%",
         backgroundColor: "#212121",
         maxWidth: "80%",
-        borderRadius: "16px",
+        borderRadius: "25px",
       }}
     >
       <Grid item>
@@ -85,7 +87,12 @@ function Chat() {
             alignItems="center"
             justifyContent="flex-end"
           >
-            <UserChatBubble message={chat.message} />
+            <UserChatBubble {...{
+                "message": chat.message,
+                'agent_name': chatDocument.agent_name,
+                'user_name': localStorage.getItem("name")
+              }
+              } />
           </Grid>
         ) : (
           <Grid
@@ -94,7 +101,11 @@ function Chat() {
             alignItems="center"
             justifyContent="flex-start"
           >
-            <AgentChatBubble message={chat.message} />
+            <AgentChatBubble {...{
+                "message": chat.message,
+                'agent_name': chatDocument.agent_name,
+                'user_name': localStorage.getItem("name")
+              }} />
           </Grid>
         );
       })}
@@ -106,6 +117,7 @@ function Chat() {
       >
         <TextField
           sx={{
+            borderRadius: "25px",
             width: "100%",
             m: 2,
             backgroundColor: "#616161",
@@ -123,7 +135,12 @@ function Chat() {
           }}
           InputProps={{
             endAdornment: (
-              <Button variant="contained" onClick={AddChatDocument}>
+              <Button variant="contained" onClick={AddChatDocument} 
+              sx={{
+                width: "10%",
+                borderRadius: "5px",
+                color: "#fff" 
+              }}>
                 Send
               </Button>
             ),

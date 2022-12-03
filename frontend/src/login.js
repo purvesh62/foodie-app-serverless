@@ -53,6 +53,7 @@ function LoginFirst() {
                         localStorage.setItem("type", response.data.type);
                         localStorage.setItem("is_active", response.data.is_active);
                         localStorage.setItem("email", response.data.email);
+                        localStorage.setItem("name", response.data.name)
                         console.log("Logged in user details: ", response.data);
                       })
                       .catch(function (error) {

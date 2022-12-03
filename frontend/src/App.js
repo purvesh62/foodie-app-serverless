@@ -7,10 +7,10 @@ import LoginSecond from './qalogin';
 import ThirdFactor from './cipherRegister';
 import LoginThird from './cipherLogin';
 import Visualize from './visualize';
-// import AgentChat from "./AgentPortal/AgentChat";
+import AgentChat from "./AgentPortal/AgentChat";
 import Chat from "./Chat";
 // import LexBot from "./lex-bot";
-// import ProfilePage from "./Profile.js/ProfilePage"
+import ProfilePage from "./Profile.js/ProfilePage"
 
 function App() {
   return (
@@ -22,9 +22,12 @@ function App() {
         <Route path='/signup-cipher' element={<ThirdFactor />}/>
         <Route path='/login-cipher' element={<LoginThird />}/>
         <Route path='/visual' element={<Visualize />}/>
-        {/* <Route path="/profile" element={<ProfilePage/>}></Route> */}
-        <Route path='/user-chat' element={<Chat />}/>
-        {/* <Route path='/agent-chat' element={<AgentChat />}/> */}
+        <Route path="/profile" element={<ProfilePage/>}></Route>
+        {
+          localStorage.getItem("type") === "user" ? <Route path='/chat' element={<Chat />}/> : <Route path='/chat' element={<AgentChat />}/>
+        }
+        {/* <Route path='/user-chat' element={<Chat />}/>
+        <Route path='/agent-chat' element={<AgentChat />}/> */}
     </Routes>
       
   );

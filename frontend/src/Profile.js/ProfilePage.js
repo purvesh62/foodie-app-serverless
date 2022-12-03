@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { collection, getDocs,doc,getDoc,setDoc,query,onSnapshot} from "firebase/firestore";
-import db from '../../utils/firebaseDBChat'
+import { collection, getDocs, doc, getDoc, setDoc, query, onSnapshot} from "firebase/firestore";
+import db from "./../firebaseDB";
 import { Card, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function ProfilePage() {
     const [previousChat,setPreviousChat] = useState([])
-    const userEmail = JSON.parse(localStorage.getItem('user')).email
+    const userEmail = localStorage.getItem("email");
     console.log(userEmail)
     const navigate = useNavigate()
     useEffect(() => {
-        getDocs(collection(db,userEmail+"_history")).then(data => {
+        getDocs(collection(db,userEmail)).then(data => {
             console.log(data.docs)
             setPreviousChat(data.docs)
         }).catch(error => {

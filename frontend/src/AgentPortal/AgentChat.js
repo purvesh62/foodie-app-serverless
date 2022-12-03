@@ -18,6 +18,8 @@ import UserChatBubble from "../UserChatBubble";
 import AgentChatBubble from "../AgentChatBubble";
 
 function AgentChat() {
+  const userEmail = localStorage.getItem("email");
+
   const [chatData, setChatHistory] = useState([]);
   const [chatDocument, setChatModuleDoc] = useState({ query: "" });
   const [message, setMessage] = useState("");
@@ -50,7 +52,8 @@ function AgentChat() {
     };
     const res = await axios.post(
       "https://publish-communication-history-7vfph4kzpa-uc.a.run.app",
-      requestData, {
+      requestData, 
+      {
       "headers": {
         'Content-Type': 'application/json'
       }}
@@ -63,7 +66,7 @@ function AgentChat() {
   async function getChatSession() {
     const qs = query(
       collection(db, "ChatModule"),
-      where("agent_email", "==", "agent@dal.ca")
+      where("agent_email", "==", userEmail)
     );
     const snapshot = await getDocs(qs);
     console.log(snapshot.docs[0].id);
@@ -76,7 +79,7 @@ function AgentChat() {
     getChatSession();
     const q = query(
       collection(db, "ChatModule"),
-      where("agent_email", "==", "agent@dal.ca")
+      where("agent_email", "==", userEmail)
     );
     const unsub = onSnapshot(q, (querySnapshot) => {
       getChatSession();
@@ -126,7 +129,7 @@ function AgentChat() {
             <UserChatBubble {...{
               'message':chat.message,
               'agent_name': chatDocument.agent_name,
-              'user_name': chatDocument.user_name
+              'user_name': localStorage.getItem("name")
             }}  />
             
           </Grid>
@@ -140,7 +143,7 @@ function AgentChat() {
             <AgentChatBubble {...{
               'message':chat.message,
               'agent_name': chatDocument.agent_name,
-              'user_name': chatDocument.user_name
+              'user_name': localStorage.getItem("name")
             }} />
           </Grid>
         );
