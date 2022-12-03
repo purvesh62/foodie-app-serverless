@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ redirectPath = "/", children }) => {
+const ProtectedRoute = ({ redirectPath = "/login", children }) => {
   if (!localStorage.getItem("email")) {
     return <Navigate to={redirectPath} replace />;
   }

@@ -19,7 +19,7 @@ import OldChat from "./OldChatPage"
 function App() {
   return (
     <Routes>
-        <Route path="/" element={<FirstFactor />}/>
+        <Route path="/register" element={<FirstFactor />}/>
         <Route path="/qa-signup" element={<SecondFactor />}/>
         <Route path='/signup-cipher' element={<ThirdFactor />}/>
 
@@ -29,6 +29,7 @@ function App() {
 
         <Route path="/visual" element={ <ProtectedRoute> <Visualize /> </ProtectedRoute> }/>    
         
+        <Route path="/" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    
         <Route path="/similar-recipes" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    
         
         <Route path="/polarity" element={ <ProtectedRoute> <Polarity /> </ProtectedRoute> } />

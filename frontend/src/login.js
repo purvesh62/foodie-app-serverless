@@ -81,7 +81,7 @@ function LoginFirst() {
       return (
         <div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
             <h1>Welcome to HalifaxFoodie!!</h1>
-            <p>New to the application? <a href="/">Register here</a></p>
+            <p>New to the application? <a href="/register">Register here</a></p>
         <form onSubmit={onSubmit} className="formLogin">
         <br></br>
         <h2>Please enter your login details</h2>

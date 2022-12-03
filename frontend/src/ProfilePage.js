@@ -3,6 +3,7 @@ import { collection, getDocs, doc, getDoc, setDoc, query, onSnapshot} from "fire
 import db from "./firebaseDB";
 import { Card, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import NavigationBar from "./Navbar";
 
 function ProfilePage() {
     const [previousChat,setPreviousChat] = useState([])
@@ -19,6 +20,7 @@ function ProfilePage() {
     },[])
     return (
         <>
+        <NavigationBar />
         <Grid container direction="row" justifyContent ="center" >
             <Grid container direction="row" justifyContent ="center" ><Typography variant="h3" sx={{m:2}}>User Profile </Typography></Grid>
             <Grid item xs={12}><Typography variant="h3" sx={{m:2}}>Previous Chats</Typography></Grid>

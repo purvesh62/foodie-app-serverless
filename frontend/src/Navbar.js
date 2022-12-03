@@ -16,6 +16,10 @@ function NavigationBar() {
             <Nav.Link href="/similar-recipes">Similar Recipes</Nav.Link>
             <Nav.Link href="/polarity">Polarity</Nav.Link>
             <Nav.Link href="/data-processing">Data Processing</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
+            {/* {if (localStorage.getItem("type") !== "user") {
+              <Nav.Link href="/chat">Customer Representative</Nav.Link>
+            } } */}
             <Nav.Link href="/" onClick={handleLogout}>
               Logout
             </Nav.Link>
