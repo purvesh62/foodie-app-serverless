@@ -19,7 +19,7 @@ function ProfilePage() {
         })
     },[])
     return (
-        <>
+        <div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
         <NavigationBar />
         <Grid container direction="row" justifyContent ="center" >
             <Grid container direction="row" justifyContent ="center" ><Typography variant="h3" sx={{m:2}}>User Profile </Typography></Grid>
@@ -38,7 +38,7 @@ function ProfilePage() {
             })}
             
         </Grid>
-        </>
+       </div>
     )
 }
 

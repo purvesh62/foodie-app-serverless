@@ -10,6 +10,7 @@ function OldChat() {
     const query = location.state.query
 
     return (
+        <div style={{background:"linear-gradient(rgba(250,0,0,0.5),transparent)", overflow:"hidden"}} >
         <Grid container justifyContent="center" align="center" direction="row" sx= {{minHeight:"100%"}}>
             <Grid item>
                 <Typography variant="h3">
@@ -28,7 +29,7 @@ function OldChat() {
                     </Grid>
                 )
             })}
-        </Grid>
+        </Grid></div>
     )
 }
 
