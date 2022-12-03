@@ -103,7 +103,7 @@ function Chat() {
           >
             <AgentChatBubble {...{
                 "message": chat.message,
-                'agent_name': chatDocument.agent_name,
+                'agent_name': chatDataDocument.agent_name,
                 'user_name': localStorage.getItem("name")
               }} />
           </Grid>
