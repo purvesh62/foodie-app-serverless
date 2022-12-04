@@ -65,7 +65,14 @@ function Chat() {
   return (
     <div>
     <NavigationBar />
-    <Grid
+    {
+      chatDocument.length === 0 || chatDocument === undefined
+      ? 
+      <Typography variant="h2">
+        Chat Unavaliable
+      </Typography>
+      :
+      <Grid
       container
       justifyContent="center"
       align="center"
@@ -93,8 +100,8 @@ function Chat() {
           >
             <UserChatBubble {...{
                 "message": chat.message,
-                'agent_name': chatDocument.agent_name,
-                'user_name': localStorage.getItem("name")
+                'agent_name': chatDataDocument.agent_name,
+                'user_name': chatDataDocument.user_name
               }
               } />
           </Grid>
@@ -108,7 +115,7 @@ function Chat() {
             <AgentChatBubble {...{
                 "message": chat.message,
                 'agent_name': chatDataDocument.agent_name,
-                'user_name': localStorage.getItem("name")
+                'user_name': chatDataDocument.user_name
               }} />
           </Grid>
         );
@@ -158,7 +165,9 @@ function Chat() {
         justifyContent="center"
         spacing={2}
       ></Grid>
-    </Grid></div>
+    </Grid> 
+      }
+    </div>
   );
 }
 

@@ -33,6 +33,7 @@ function NavigationBar() {
             <Nav.Link href="/polarity">Polarity</Nav.Link>
             <Nav.Link href="/data-processing">Data Processing</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
+            <Nav.Link href="/chat">Chat</Nav.Link>
             {/* {if (localStorage.getItem("type") !== "user") {
               <Nav.Link href="/chat">Customer Representative</Nav.Link>
             } } */}

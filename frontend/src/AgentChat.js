@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import { Grid, TextField } from "@mui/material";
 import axios from "axios";
 import NavigationBar from "./Navbar";
+import {useNavigate} from "react-router-dom"
 
 import {
   collection,
@@ -20,6 +21,8 @@ import UserChatBubble from "./UserChatBubble";
 import AgentChatBubble from "./AgentChatBubble";
 
 function AgentChat() {
+  let navigate=useNavigate();
+
   const kommuniccate = ((d, m) => {
     var kommunicateSettings =
       { "appId": "365423f5538062fede68e6d8d5cd92f1f", "popupWidget": true, "automaticChatOpenOnNavigation": true };
@@ -69,6 +72,7 @@ function AgentChat() {
       }}
     );
     console.log(res);
+    navigate('/');
     // const deleteRes = await deleteDoc(doc(db, "ChatModule", documentID));
     // console.log(deleteRes);
   }
@@ -99,7 +103,13 @@ function AgentChat() {
   return (
     <div>
     <NavigationBar />
-    <Grid
+    {
+      chatDocument.length === 0 || chatDocument === undefined
+      ?
+      <Typography variant="h2">
+        Chat Unavaliable
+      </Typography>
+      : <Grid
       container
       justifyContent="center"
       direction="row"
@@ -141,7 +151,7 @@ function AgentChat() {
             <UserChatBubble {...{
               'message':chat.message,
               'agent_name': chatDocument.agent_name,
-              'user_name': localStorage.getItem("name")
+              'user_name': chatDocument.user_name
             }}  />
             
           </Grid>
@@ -155,7 +165,7 @@ function AgentChat() {
             <AgentChatBubble {...{
               'message':chat.message,
               'agent_name': chatDocument.agent_name,
-              'user_name': localStorage.getItem("name")
+              'user_name': chatDocument.user_name
             }} />
           </Grid>
         );
@@ -201,6 +211,7 @@ function AgentChat() {
         spacing={2}
       ></Grid>
     </Grid>
+    }
     </div>
   );
 }
