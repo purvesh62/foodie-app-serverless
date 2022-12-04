@@ -19,26 +19,120 @@ import OldChat from "./OldChatPage"
 function App() {
   return (
     <Routes>
-        <Route path="/register" element={<FirstFactor />}/>
-        <Route path="/qa-signup" element={<SecondFactor />}/>
-        <Route path='/signup-cipher' element={<ThirdFactor />}/>
+      <Route path="/register" element={<FirstFactor />} />
+      <Route path="/qa-signup" element={<SecondFactor />} />
+      <Route path="/signup-cipher" element={<ThirdFactor />} />
 
-        <Route path='/login' element={<LoginFirst />}/>
-        <Route path="/qa-login" element={ <ProtectedRoute> <LoginSecond /> </ProtectedRoute> }/>    
-        <Route path="/login-cipher" element={ <ProtectedRoute> <LoginThird /> </ProtectedRoute> }/>    
+      <Route path="/login" element={<LoginFirst />} />
+      <Route
+        path="/qa-login"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <LoginSecond />{" "}
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/login-cipher"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <LoginThird />{" "}
+          </ProtectedRoute>
+        }
+      />
 
-        <Route path="/visual" element={ <ProtectedRoute> <Visualize /> </ProtectedRoute> }/>    
-        
-        <Route path="/" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    
-        <Route path="/similar-recipes" element={ <ProtectedRoute> <SimilarRecipes /> </ProtectedRoute> } />    
-        
-        <Route path="/polarity" element={ <ProtectedRoute> <Polarity /> </ProtectedRoute> } />
+      <Route
+        path="/visual"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <Visualize />{" "}
+          </ProtectedRoute>
+        }
+      />
 
-        <Route path="/profile" element={<ProtectedRoute> <ProfilePage /> </ProtectedRoute> } />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <SimilarRecipes />{" "}
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/similar-recipes"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <SimilarRecipes />{" "}
+          </ProtectedRoute>
+        }
+      />
 
-        <Route path="/oldChat" element={ <ProtectedRoute> <OldChat /> </ProtectedRoute> } />
+      <Route
+        path="/polarity"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <Polarity />{" "}
+          </ProtectedRoute>
+        }
+      />
 
-        { localStorage.getItem("type") === "user" ? <Route path="/chat" element={ <ProtectedRoute> <Chat /> </ProtectedRoute> } /> : <Route path="/chat" element={ <ProtectedRoute> <AgentChat /> </ProtectedRoute> } />}
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <ProfilePage />{" "}
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/oldChat"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <OldChat />{" "}
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/data-processing"
+        element={
+          <ProtectedRoute>
+            {" "}
+            <DataProcessing />{" "}
+          </ProtectedRoute>
+        }
+      />
+
+      {localStorage.getItem("type") === "user" ? (
+        <Route
+          path="/chat"
+          element={
+            <ProtectedRoute>
+              {" "}
+              <Chat />{" "}
+            </ProtectedRoute>
+          }
+        />
+      ) : (
+        <Route
+          path="/chat"
+          element={
+            <ProtectedRoute>
+              {" "}
+              <AgentChat />{" "}
+            </ProtectedRoute>
+          }
+        />
+      )}
     </Routes>
   );
 }

@@ -45,7 +45,7 @@ function Polarity() {
       { resturant_id: option },
       { "Content-Type": "application/json" }
     );
-    await delay(60000);
+    await delay(5000);
     setLoading(false);
   };
 
