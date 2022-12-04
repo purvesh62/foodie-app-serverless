@@ -103,7 +103,7 @@ function App() {
       />
 
       <Route
-        path="/data-processing"
+        path="/dataprocessing"
         element={
           <ProtectedRoute>
             {" "}
