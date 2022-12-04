@@ -1,3 +1,12 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file content the business logic to 
+perform operations related to the adding
+recipe in the dynamo DB. 
+==========================================
+"""
+
 import json
 import boto3
 import logging

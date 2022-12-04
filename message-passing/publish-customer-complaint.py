@@ -1,3 +1,11 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This cloud function is called from the 
+lambda function of Lex and it'll publish a
+message to the "customer_complaint" topic.
+==========================================
+"""
 import functions_framework
 import json
 from google.api_core.exceptions import NotFound

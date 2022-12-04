@@ -1,3 +1,11 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This cloud function is called from the 
+front-end and it'll publish a message to
+the "communication_history" topic.
+==========================================
+"""
 import json
 import functions_framework
 from google.api_core.exceptions import NotFound

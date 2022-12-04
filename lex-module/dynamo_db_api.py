@@ -1,3 +1,10 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file content the business logic to 
+work with the DynamoDB via API calls.
+==========================================
+"""
 import json
 from dynamo_db_operations import Dynamo
 

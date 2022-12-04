@@ -1,3 +1,15 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file is triggered when a message is 
+published in the "customer_complaints" 
+pub/sub.
+This function creates a document in the 
+firebase for the user and agent where
+their messages will be stored while the
+session is active.
+==========================================
+"""
 import json
 import base64
 import firebase_admin

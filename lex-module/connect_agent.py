@@ -1,3 +1,11 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file content the business logic to 
+connect the user with the customer service
+representative
+==========================================
+"""
 import logging
 from common_validation import CommonValidation
 from dynamo_db_operations import Dynamo

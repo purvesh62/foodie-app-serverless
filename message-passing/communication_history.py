@@ -1,3 +1,13 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file is triggered when a message is 
+published in the "communication_history" 
+pub/sub.
+This function saves the user's chat history
+into a different user specific collection.
+==========================================
+"""
 import json
 import base64
 import firebase_admin

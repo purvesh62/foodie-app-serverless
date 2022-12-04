@@ -1,3 +1,11 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file content the business logic to 
+perform operations related to the rate 
+order intent. 
+==========================================
+"""
 import logging
 from dynamo_db_operations import Dynamo
 from common_validation import CommonValidation

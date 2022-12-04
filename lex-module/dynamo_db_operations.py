@@ -1,3 +1,11 @@
+"""
+============================================
+Author: Purvesh Rathod
+This file content the business logic related
+to the DynamoDB operations which will be 
+used in the intent operations.
+============================================
+"""
 import boto3
 import uuid
 from botocore.exceptions import ClientError

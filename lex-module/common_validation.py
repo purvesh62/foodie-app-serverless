@@ -1,3 +1,12 @@
+"""
+==========================================
+Author: Purvesh Rathod
+This file content the business logic to 
+perform email and order number validations
+which will be used by all the intent 
+operations
+==========================================
+"""
 from dynamo_db_operations import Dynamo
 
 

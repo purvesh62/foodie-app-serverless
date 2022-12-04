@@ -1,3 +1,13 @@
+"""
+============================================
+Author: Purvesh Rathod
+This file content the business logic which 
+calls the object based on the intent and 
+perform the required operations.
+This file also handles sending back messages 
+to the Lex bot.
+============================================
+"""
 import logging
 import boto3
 from rate_order import RateOrder
@@ -27,7 +37,6 @@ def process_intent(event):
         validation_result = AddRecipe(event).validate_slots()
     print(f"Intent validation: {intent}")
     print(f"Validation result: {validation_result}")
-    
 
     if event["invocationSource"] == "DialogCodeHook":
         # Respond back to Lex
@@ -70,13 +79,18 @@ def process_intent(event):
                     },
                 }
             }
-            
+
             if "sessionAttributes" in validation_result:
-                response["sessionState"]["sessionAttributes"] = validation_result["sessionAttributes"]
-                
+                response["sessionState"]["sessionAttributes"] = validation_result[
+                    "sessionAttributes"
+                ]
+
             if "message" in validation_result:
-                response['messages'] = [
-                    {"contentType": "PlainText", "content": validation_result["message"]}
+                response["messages"] = [
+                    {
+                        "contentType": "PlainText",
+                        "content": validation_result["message"],
+                    }
                 ]
             return response
 
