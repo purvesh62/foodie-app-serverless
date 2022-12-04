@@ -11,7 +11,7 @@ function NavigationBar() {
                     "type": "update",
                     "data": {
                       "primary_key": "email",
-                      "primary_key_value": localStorage.get("email"),
+                      "primary_key_value": localStorage.getItem("email"),
                       "update_key": "is_active",
                       "update_key_value": false
                     }
