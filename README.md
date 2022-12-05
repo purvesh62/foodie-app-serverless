@@ -55,3 +55,8 @@ GCP Services:
 Data Source:
 
 - https://www.kaggle.com/datasets/sathianpong/foodrecipe
+
+Others:
+
+- https://jsfiddle.net/MrPolywhirl/f5q85uzy/
+- https://docs.amplify.aws/guides/functions/dynamodb-from-js-lambda/q/platform/js/#getting-an-item-by-primary-key-in-dynamodb-from-lambda
