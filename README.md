@@ -10,7 +10,6 @@
 | Subham Sharma   | subham@dal.ca          |
 
 
--
 ## Project setup  
 
 ### Frontend  
